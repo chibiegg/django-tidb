@@ -80,6 +80,9 @@ class DatabaseWrapper(MysqlDatabaseWrapper):
             "has_zoneinfo_database": bool(row[5]),
         }
 
+    def get_database_version(self):
+        return self.tidb_version
+
     @cached_property
     def tidb_server_info(self):
         return self.tidb_server_data["version"]

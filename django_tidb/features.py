@@ -35,6 +35,10 @@ class DatabaseFeatures(MysqlDatabaseFeatures):
     }
 
     @cached_property
+    def minimum_database_version(self):
+        return (6, 5)
+
+    @cached_property
     def supports_foreign_keys(self):
         if self.connection.tidb_version >= (6, 6, 0):
             return True
